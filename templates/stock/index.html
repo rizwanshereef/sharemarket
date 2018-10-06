@@ -1,0 +1,58 @@
+<html>
+	<head>
+            <link rel="stylesheet" type="text/css" href="home/rizwan/Proj/sharemarket/templates/stock/jquery.dataTables.css">
+		<title>Share Market</title>
+	</head>
+		<body>
+                
+            <h1>Stock details</h1>
+                <br><br>
+                
+            <form id="s_data" method="POST" action="/">{% csrf_token %}
+                {{ form }}
+                <button type="submit">Search</button>
+            </form>
+                
+
+            <table style="width:100%;border: 1px solid black;border-collapse: collapse;" border="1">
+            <tr>
+                <th>stock</th>
+                <th>Purchase Price</th>
+                <th>Purchase Date</th>
+                <th>Sell Quantity</th>
+                <th>Sell Price</th>
+                <th>Sell Date</th>
+                <th>Profit</th>
+            </tr>
+                {% for i in stocks %}
+            <tr>
+                <td>{{i.stock}}</td>
+                <td>{{i.pur_price}}</td>
+                <td>{{i.pur_date}}</td>
+                <td>{{i.sell_qty}}</td>
+                <td>{{i.sell_price}}</td>
+                <td>{{i.sell_date}}</td>
+                <td>{{i.profit}}</td>
+                {% endfor %}
+            </tr>
+
+        </table>
+        <!-- <script type="text/javascript">
+            var frm = $('s_data');
+            frm.submit(function () {
+                $.ajax({
+                    type: frm.attr('method'),
+                    url: frm.attr('action'),
+                    data: frm.serialize(),
+                    success: function (data) {
+                        $("#SOME-DIV").html(data);
+                    },
+                    error: function(data) {
+                        $("#MESSAGE-DIV").html("Something went wrong!");
+                    }
+                });
+                return false;
+            });
+        </script> -->
+        </body>
+</html>

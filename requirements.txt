@@ -1,3 +1,4 @@
+//This file states the requirements and provides the version details that are necessary for successful code usage.
 Django==2.1
 djangorestframework==3.8.2
 gunicorn==19.9.0
